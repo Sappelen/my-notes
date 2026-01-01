@@ -5,10 +5,6 @@ draft: false
 tags:
   - 
 ---
+Je kunt contact met mij opnemen via [mail](mailto:marjon.wiendels@gmail.com) of [LinkedIn](http://www.linkedin.com/in/marjonwiendels).
 
-Welkom op de website van Marjon Wiendels, dataspecialist. 
-Tientallen jaren werkte ik als IT-er in verschillende branches. Onder andere ben ik gecertificeerd Scrum Master®. De laatste jaren heb ik me toegelegd op wikidata, open source, wikipedia en persoonlijk kennismanagement.  Daarnaast [schrijf ik ook](https://sappelen.com), zowel fictie als non-fictie.
-  
-Je kunt contact met mij opnemen via [LinkedIn](http://www.linkedin.com/in/marjonwiendels) of [mail](mailto:marjon.wiendels@gmail.com).  
-
-![[https://marjonw.wordpress.com/wp-content/uploads/2025/12/marjon-wiendels-vierkant.jpg|200]]
+![[https://media.licdn.com/dms/image/v2/D4E03AQFO7EZ8sOwc7Q/profile-displayphoto-scale_400_400/B4EZo7N6C5KcAk-/0/1761930096749?e=1769040000&v=beta&t=Kp0e-IeswXWz_6INVLikPWdI6fc47_Yg73K7mD1659Y|200]]
