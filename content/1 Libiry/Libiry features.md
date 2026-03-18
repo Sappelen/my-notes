@@ -85,9 +85,7 @@ Find duplicate books in your collection:
 Files are moved to the system trash (recoverable) if the system settings allow that. Otherwise, they are permanently deleted.
 
 ### Warnings
-- Moving/deleting multi-book markdown files shows a warning
-- Nested folders show a warning before deletion
-
+- Moving/deleting multiple files shows a warning
 ## Customization
 
 ### Colors
@@ -110,19 +108,29 @@ All colors are customizable:
 ### File Types
 Configure which file types to display in `selected types.txt`
 
-## Metadata Extraction
+## Metadata extraction
 
-### Supported Formats
+### Supported formats
 
-| Format   | Cover | Title | Author | Tags | Other          |
-| -------- | ----- | ----- | ------ | ---- | -------------- |
-| EPUB     | ✓     | ✓     | ✓      | ✓    | Full metadata  |
-| MOBI/AZW | ✓     | ✓     | ✓      | ✓*   | Basic metadata |
-| PDF      | ✓     | ✓     | ✓      | ✓    | Full metadata  |
-| CBZ      | ✓     | ✓     | ✓      | ✓    | ComicInfo.xml  |
-| CBR      | ✓     | ✓     | ✓      | ✓*   | Basic          |
-| Markdown | ✓     | ✓     | ✓      | ✓    | All fields     |
-Uses OPF sidecar files
+| Format             | Cover | Title | Author | Tags | Other                     |
+| ------------------ | ----- | ----- | ------ | ---- | ------------------------- |
+| EPUB               | ✓     | ✓     | ✓      | ✓    | Full metadata             |
+| PDF                | ✓     | ✓     | ✓      | ✓    | Full metadata             |
+| CBZ                | ✓     | ✓     | ✓      | ✓    | ComicInfo.xml             |
+| Markdown           | ✓     | ✓     | ✓      | ✓    | All metadata in document  |
+| MOBI/AZW/CBR/Other | ✓     | ✓     | ✓      | ✓*   | All metadata in OPF files |
+
+### Scanned formats
+
+| Format      | Metadata      | Cover |
+| ----------- | ------------- | ----- |
+| EPUB        | Full          | Yes   |
+| MOBI/AZW    | Full          | Yes   |
+| PDF         | Full          | Yes   |
+| CBR/CBZ     | Basic         | Yes   |
+| Markdown    | Full          | Yes   |
+| Other files | Filename only | No    |
+
 
 ### Markdown Support
 Two formats are supported:

@@ -1,0 +1,2 @@
+Libiry and its companion tools are written bij [Marjon Wiendels](https://marjonwiendels.nl).
+The icons used are an adaptation of the [Font Awesome](https://www.flaticon.com/packs/font-awesome/8) icon pack by [Dave Gandy](https://www.flaticon.com/authors/dave-gandy).

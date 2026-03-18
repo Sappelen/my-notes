@@ -7,7 +7,7 @@ Libiry is free and open source.
 
 ![[https://sappelen.com/wp-content/uploads/2026/03/Libiry-grid-800x421.png]]
 
-## Key Features
+## Key features
 
 - **Simple** - No frills
 - **Visual grid display** - See all your books in a cover grid
@@ -37,22 +37,22 @@ Libiry is free and open source.
 - [Keyboard Shortcuts](Keyboard%20shortcuts.md) - Quick reference
 
 ### Technical
-- [Supported file formats](Supported%20file%20formats.md) - EPUB, PDF, MOBI, and more
-- [Metadata handling](Metadata%20handling.md) - How metadata is extracted and stored
+- [Supported file formats!!!](Supported%20file%20formats!!!.md) - EPUB, PDF, MOBI, and more
+- [Metadata handling!!!](Metadata%20handling!!!.md) - How metadata is extracted and stored
 - [Troubleshooting](Troubleshooting.md) - Common issues and solutions
 
 ## Screenshots
 
-### Main View
+### Main view
 The main grid view displays book covers with optional title and tag overlays.
 
-### Settings Panel
+### Settings panel
 Customize colors, fonts, scrollbar appearance, and more.
 
-### Tag Filter
+### Tag filter
 Click any tag in the status bar at the bottom to filter by that tag.
 
-## System Requirements
+## System requirements
 
 | Platform | Requirements |
 |----------|--------------|
@@ -61,7 +61,6 @@ Click any tag in the status bar at the bottom to filter by that tag.
 | macOS | macOS 11+, Python 3.12 |
 | Android | Android 8.0+ (via Buildozer) |
 | iOS | iOS 13+ (via Kivy-iOS) |
-
 ## Quick start
 
 ```bash

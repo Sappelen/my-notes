@@ -30,7 +30,7 @@ In it, you store either a URL to the cover or the book title.
 2. **Run the generator** and point it to your ebook folder
 3. **Get markdown files** that are perfect for Obsidian or for mobile viewing
 
-→ [Continue to Libiry2Go Guide](5%20Libiry2Go/index.md)
+→ [Continue to Libiry2Go Guide](4%20Libiry2Go/index.md)
 
 ## Install Libiry
 

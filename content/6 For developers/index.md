@@ -1,5 +1,5 @@
 ---
-title: 6. Developer guide
+title: 6. Libiry developer guide
 ---
 Technical documentation for developers working with or contributing to the Libiry ecosystem.
 

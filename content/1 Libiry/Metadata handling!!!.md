@@ -1,12 +1,11 @@
 ---
 title: Metadata handling
 ---
-
 Libiry extracts and manages book metadata from various sources and formats.
 
-## Metadata Fields
+## Metadata fields
 
-Libiry supports 13 metadata fields, following the Goodreads CSV format:
+Libiry supports 13 metadata fields, following the Goodreads CSV format: 
 
 | Field | Goodreads Equivalent | Description |
 |-------|---------------------|-------------|
@@ -26,7 +25,7 @@ Libiry supports 13 metadata fields, following the Goodreads CSV format:
 
 All field names are configurable in `customize.txt`.
 
-## Metadata Extraction
+## Metadata extraction
 
 ### EPUB Files
 
@@ -41,7 +40,7 @@ Metadata is read from the OPF file inside the EPUB:
 </metadata>
 ```
 
-### PDF Files
+### PDF files
 
 Metadata is read from the PDF's document information dictionary:
 
@@ -58,9 +57,9 @@ Basic metadata is extracted using the `mobi` library:
 - Author → `author`
 - Tags → from OPF sidecar file
 
-### Comic Files (CBR/CBZ)
+### Comic files (CBR/CBZ)
 
-Metadata from `ComicInfo.xml`:
+Metadata is read from `ComicInfo.xml`:
 
 ```xml
 <ComicInfo>
@@ -70,9 +69,7 @@ Metadata from `ComicInfo.xml`:
 </ComicInfo>
 ```
 
-### Markdown Files
-
-#### YAML Frontmatter
+### Markdown files
 
 ```yaml
 ---
@@ -87,36 +84,21 @@ rating: 4
 ---
 ```
 
-YAML parsing rules:
-- Obsidian link syntax supported: `[[url]]` or `![[url]]`
-- Arrays for tags: `tags: [fiction, fantasy]` or multi-line
-- Numbers parsed as integers
+The YAML frontmatter:
+- Supports the Obsidian link syntax: `[[url]]` or `![[url]]`
+- Uses arrays for tags: `tags: [fiction, fantasy]`. Multi-line tags are also suported
+- Numbers are parsed as integers
 
-#### Flat Format
+## Tag management
 
-```
-cover: cover.jpg
-booktitle: The Book Title
-author: Author Name
-tags: [fiction, fantasy]
-```
-
-Flat format rules:
-- One key-value pair per line
-- Keys in square brackets
-- Multiple books separated by `---`
-- Maximum 100 books per file (performance limit)
-
-## Tag Management
-
-### Reading Tags
+### Reading tags
 
 Tags are read from (in priority order):
 1. OPF sidecar file (if exists)
 2. Embedded metadata in ebook
 3. Markdown content
 
-### Writing Tags
+### Writing tags
 
 Tags are written to:
 - **EPUB**: Embedded `<dc:subject>` elements
@@ -126,7 +108,7 @@ Tags are written to:
 - **CBR**: OPF sidecar file
 - **Markdown**: In file content
 
-### Tag Format
+### Tag format
 
 Tags are stored as:
 - Comma-separated string in some formats
@@ -164,14 +146,15 @@ cover: "[[cover.jpg]]"
 cover: "![[cover.jpg]]"
 ```
 
-## Duplicate Detection
+## Duplicate detection
 
 The Twins filter detects duplicates using:
 
-### ISBN Matching
-Exact match on ISBN-10 or ISBN-13.
+### ISBN matching
 
-### Title + Author Matching
+Exact match on ISBN-10 or ISBN-13
+
+### Title + author matching
 
 Normalization process:
 1. Convert to lowercase
@@ -185,7 +168,7 @@ Example:
 - "Handmaid's Tale" by "Atwood, Margaret"
 - Both normalize to the same value → detected as duplicate
 
-## Field Name Customization
+## Field name customization
 
 Map Libiry fields to your existing metadata:
 

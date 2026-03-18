@@ -19,7 +19,7 @@ Tags are stored in the EPUB's OPF metadata using `<dc:subject>` elements.
 
 ### MOBI/AZW/AZW3 (.mobi, .azw, .azw3)
 
-Amazon Kindle formats.
+These are all Amazon Kindle formats.
 
 | Feature | Support |
 |---------|---------|
@@ -41,7 +41,7 @@ Portable Document Format.
 
 Some PDFs with encryption or complex structures use OPF sidecar files for tag storage. Use the [PDF Tag Checker](PDF%20Tag%20Checker.md) utility to identify these.
 
-## Comic Formats
+## Comic formats
 
 ### CBZ (.cbz)
 
@@ -67,7 +67,7 @@ Comic book archive (RAR-based).
 
 RAR archives are read-only, so tags are stored in OPF sidecar files.
 
-## Document Formats
+## Document format
 
 ### Markdown (.md)
 
@@ -94,39 +94,20 @@ rating: 8
 Book content here...
 ```
 
-#### Flat Format (Libiry/BookSpineScanner)
-
-```markdown
-[cover]: https://example.com/cover.jpg
-[booktitle]: The Book Title
-[author]: Author Name
-[isbn]: 978-1234567890
-[tags]: fiction, fantasy
-[rating]: 8
-
----
-
-[cover]: https://example.com/cover2.jpg
-[booktitle]: Another Book
-[author]: Another Author
-```
-
-The flat format supports multiple books per file (up to 100 for performance).
-
 ## OPF sidecar files
 
 For formats that don't support direct tag editing, Libiry uses OPF (Open Packaging Format) sidecar (buddy) files. This includes:
 
-- **MOBI/AZW/AZW3** - Always uses OPF buddy
+- **MOBI/AZW/AZW3** - Always uses OPF sidecar
 - **CBR** - Always uses OPF buddy (RAR is read-only)
-- **Problematic PDFs** - Uses OPF buddy when direct editing fails
-- **All other formats** - RTF, MP3, TXT, DOC, etc. automatically use OPF buddy
+- **Problematic PDFs** - Uses OPF sidecar when direct editing fails
+- **All other formats** - RTF, MP3, TXT, DOC, etc. automatically use OPF sidecar
 
 ### How it works
 
-1. When you edit tags on `book.mobi`, Libiry creates `book.opf`
-2. The OPF file stores metadata in XML format
-3. On reading, Libiry checks for OPF file first, then embedded metadata
+1. When you edit tags on `book.mobi`, Libiry creates a `book.mobi.opf` file
+2. The OPF file stores the metadata in XML format
+3. On reading, Libiry checks for an OPF sidecar file first, then checks the document's embedded metadata
 
 ### OPF structure
 
@@ -143,7 +124,7 @@ For formats that don't support direct tag editing, Libiry uses OPF (Open Packagi
 
 ## Other file formats
 
-Any file type can be added to your library. For formats not listed above (such as `.rtf`, `.mp3`, `.txt`, `.doc`, etc.), Libiry automatically uses OPF buddy files for tag storage.
+Any file type can be added to your library. For formats not listed above (such as `.rtf`, `.mp3`, `.txt`, `.docx`, etc.), Libiry automatically uses OPF sidecar files for tag storage.
 
 | Feature | Support |
 |---------|---------|
@@ -153,9 +134,9 @@ Any file type can be added to your library. For formats not listed above (such a
 
 Simply add the file extension to `selected types.txt` and Libiry will handle it.
 
-**Note:** `.opf` files themselves are not displayed as books (they are buddy files for other formats).
+**Note:** `.opf` files themselves are not displayed as books.
 
-## File Type Filtering
+## File type filtering
 
 Configure which file types are displayed in `selected types.txt`:
 
@@ -174,11 +155,11 @@ Configure which file types are displayed in `selected types.txt`:
 
 To add a new type, add its extension on a new line.
 
-## Format Detection
+## Format detection
 
 Libiry detects file formats by extension, not by content inspection. Ensure your files have correct extensions.
 
-## Cover Extraction Priority
+## Cover extraction priority
 
 1. **Embedded cover** in ebook metadata
 2. **First image** for comics (CBR/CBZ)
@@ -186,9 +167,8 @@ Libiry detects file formats by extension, not by content inspection. Ensure your
 4. **Cover field** in markdown files
 5. **Online lookup** from Open Library, Google Books, Europeana
 
-## Performance Notes
+## Performance notes
 
 - Large PDFs may take longer to extract covers
-- Comics with many images are processed efficiently (only first image)
-- Markdown files with >100 books are split for performance
-- Thumbnail cache speeds up repeated access
+- Comics with many images are processed efficiently (only the first image)
+- Cache files speed up repeated access

@@ -1,7 +1,6 @@
 ---
 title: PDF Tag Checker
 ---
-
 The PDF Tag Checker identifies PDFs that cannot read or write tags directly, and automatically creates OPF files for them.
 
 ## Purpose

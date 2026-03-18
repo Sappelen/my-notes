@@ -13,7 +13,7 @@ Obsidian is a powerful app that uses markdown files. Libiry's markdown support m
 
 ### Option 1: Libiry2Go export
 
-1. Run [Libiry2Go](5%20Libiry2Go/index.md) on your book library
+1. Run [Libiry2Go](4%20Libiry2Go/index.md) on your book library
 2. Use the "one file per book" mode
 3. Place the output in your Obsidian vault
 

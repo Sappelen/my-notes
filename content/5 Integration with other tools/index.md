@@ -1,5 +1,5 @@
 ---
-title: 4. Integration with other tools
+title: 5. Integration with other tools
 ---
 
 Double clicking a book in Libiry will open it in your default reading app. But there are more ways in which other tools work well with Libiry.

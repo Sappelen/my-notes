@@ -7,21 +7,20 @@ title: Welcome to Libiry
 Welcome to the official Libiry site. Libiry is a set of tools that helps you to manage your entire book collection: physical books on shelves, ebooks, audiobooks, book notes and summaries. 
 The set consists of four tools that work together.
 
-| Component                                                  | Description                                                                     | Platform                            |
-| ---------------------------------------------------------- | ------------------------------------------------------------------------------- | ----------------------------------- |
-| [**Libiry**](1%20Libiry/index.md)                                    | Browse and maintain your physical and digital library                           | Windows, Linux, macOS, Android, iOS |
-| [**LibiryBookSpineScanner**](2%20Libiry%20Bookspinescanner/index.md) | Scan or upload bookshelf photos and extract book metadata to markdown files     | Web (PWA) - Any device              |
-| [**Calibre2Libiry**](index.md)                    | Rename your Calibre opf and cover files for use in your own folder structure    | Windows, Linux, macOS, Android, iOS |
-| [**Libiry2Go**](5%20Libiry2Go/index.md)                              | Create portable markdown files with metadata of your book collection            | Windows, Linux, macOS               |
-|                                                            |                                                                                 |                                     |
+| Component                                                            | Description                                                                  | Platform                            |
+| -------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ----------------------------------- |
+| [**Libiry**](1%20Libiry/index.md)                                    | Browse and maintain your physical and digital library                        | Windows, Linux, macOS, Android, iOS |
+| [**LibiryBookSpineScanner**](2%20Libiry%20Bookspinescanner/index.md) | Scan or upload bookshelf photos and extract book metadata to markdown files  | Web - Any device                    |
+| [**Calibre2Libiry**](index.md)                                       | Rename your Calibre opf and cover files for use in your own folder structure | Windows, Linux, macOS, Android, iOS |
+| [**Libiry2Go**](4%20Libiry2Go/index.md)                              | Create portable markdown files with metadata of your book collection         | Windows, Linux, macOS               |
+|                                                                      |                                                                              |                                     |
 
 Libiry works with your own book folder structure. 
 It visualizes ALL of your books and zines, with or without an ISBN number.
 There's no separate database.
 You can choose your own markdown field names. 
 
-To add your physical books to your ebook collection with the Libiry BookspineScanner, you only need to take one photo per book shelf. Taking stock of your analog books is not a big project anymore. It can easily be done in parts, too.
-
+With the Libiry BookspineScanner, you can add your physical books to your ebook collection with only one photo per book shelf. Taking stock of your analog books is not a big project anymore. It can easily be done in parts, too.
 ## Quick links
 
 ### Getting started
@@ -31,19 +30,13 @@ To add your physical books to your ebook collection with the Libiry BookspineSca
 
 ### Features
 - [Libiry Features Overview](Libiry%20features.md)
-- [Supported file formats](Supported%20file%20formats.md)
-- [Metadata & Tags](Metadata%20handling.md)
+- [Supported file formats!!!](Supported%20file%20formats!!!.md)
+- [Metadata & Tags](Metadata%20handling!!!.md)
 - [Keyboard Shortcuts](Keyboard%20shortcuts.md)
 
-### [content/4 Integration with other tools/index](Integration with other tools)
+### [[5 Integration with other tools/index|Integration with other tools]]
 
-
-### For developers
-- [[Architecture]]
-- [[Contributing to Libiry]]
-#### Utilities
-- [Utilities](Utilities.md)
-- [PDF Tag Checker](PDF%20Tag%20Checker.md)
+### [[6 For developers/index|Information for developers]]
 
 ## Metadata per format
 
@@ -59,6 +52,7 @@ To add your physical books to your ebook collection with the Libiry BookspineSca
 
 ## Community and support
 
+- [[Contributors]]
 - [GitHub repository](https://github.com/sappelen/Libiry)
 - [Report issues](https://github.com/sappelen/Libiry/issues)
 
