@@ -6,16 +6,16 @@ Double clicking a book in Libiry will open it in your default reading app. But t
 
 ## Some use cases
 
-- Use the [[Obsidian integration]] to write book notes or visualise your library or reading progress
-- Use the [[Calibre integration]] for ebook management
+- Use the [[Obsidian integration!!!]] to write book notes or visualise your library or reading progress
+- Use the [[Calibre integration!!!]] for ebook management
 - Use the [[Goodreads integration]] to maintain your book metadata
 
 ## Supported integrations
 
 | Tool | Integration Type | Documentation |
 |------|-----------------|---------------|
-| [Obsidian](Obsidian%20integration.md) | Markdown files, YAML frontmatter | [Guide](Obsidian%20integration.md) |
-| [Calibre](Calibre%20integration.md) | Shared library folder, metadata | [Guide](Calibre%20integration.md) |
+| [Obsidian](Obsidian%20integration!!!.md) | Markdown files, YAML frontmatter | [Guide](Obsidian%20integration!!!.md) |
+| [Calibre](Calibre%20integration!!!.md) | Shared library folder, metadata | [Guide](Calibre%20integration!!!.md) |
 | [Goodreads](Goodreads%20integration.md) | CSV import/export format | [Guide](Goodreads%20integration.md) |
 
 ## Integration philosophy

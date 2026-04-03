@@ -6,11 +6,12 @@ Libiry includes several standalone utility scripts for maintenance and troublesh
 
 ## Available utilities
 
-| Utility                                     | Purpose                                  | Documentation                                    |
-| ------------------------------------------- | ---------------------------------------- | ------------------------------------------------ |
-| [check_pdf_tags.py](PDF%20Tag%20Checker.md) | Identify PDFs with tag read/write issues | [Guide](PDF%20Tag%20Checker.md)                  |
-| create_icons.py                             | Generate application icons               | Internal use                                     |
-| install.bat                                 | Install dependencies                     | [Installation](Libiry%20installation%20guide.md) |
+| Utility                        | Purpose                                  | Documentation                                    |
+| ------------------------------ | ---------------------------------------- | ------------------------------------------------ |
+| Check and consolidate metadata | Identify PDFs with tag read/write issues | [Guide](Check%20and%20consolidate%20metadata%20utility.md) |
+| Clear cache                    | Clear Libiry's cache                     | [Guide](Cache%20clear%20utility.md)              |
+| create_icons.py                | Generate application icons               | For internal use                                 |
+| install.bat                    | Install dependencies                     | [Installation](Libiry%20installation%20guide.md) |
 
 ## PDF Tag Checker
 
@@ -21,7 +22,7 @@ The most commonly used utility. Scans your library to identify PDFs that cannot 
 python check_pdf_tags.py "C:\Books"
 ```
 
-[Full documentation →](PDF%20Tag%20Checker.md)
+[Full documentation →](Check%20and%20consolidate%20metadata%20utility.md)
 
 ## Batch scripts
 

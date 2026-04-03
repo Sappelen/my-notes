@@ -50,7 +50,7 @@ In it, you store either a URL to the cover or the book title.
 ### Limitations
 
 - Does not read existing metadata for MOBI, AZW, CBR and for some problematic PDFs
-- Only reads existing opf files that have the same name and folder as the book itself (f.e. book.pdf.opf for a book named book.pdf)
+- Only reads existing OPF files that have the same name and folder as the book itself (f.e. book.pdf.opf for a book named book.pdf)
 - No validation for maintaining metadata like ISBN numbers
 ## First launch
 

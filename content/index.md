@@ -11,7 +11,7 @@ The set consists of four tools that work together.
 | -------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ----------------------------------- |
 | [**Libiry**](1%20Libiry/index.md)                                    | Browse and maintain your physical and digital library                        | Windows, Linux, macOS, Android, iOS |
 | [**LibiryBookSpineScanner**](2%20Libiry%20Bookspinescanner/index.md) | Scan or upload bookshelf photos and extract book metadata to markdown files  | Web - Any device                    |
-| [**Calibre2Libiry**](index.md)                                       | Rename your Calibre opf and cover files for use in your own folder structure | Windows, Linux, macOS, Android, iOS |
+| [**Calibre2Libiry**](index.md)                                       | Rename your Calibre OPF and cover files for use in your own folder structure | Windows, Linux, macOS, Android, iOS |
 | [**Libiry2Go**](4%20Libiry2Go/index.md)                              | Create portable markdown files with metadata of your book collection         | Windows, Linux, macOS               |
 |                                                                      |                                                                              |                                     |
 
@@ -52,7 +52,7 @@ With the Libiry BookspineScanner, you can add your physical books to your ebook 
 
 ## Community and support
 
-- [[Contributors]]
+- [[Contributing]]
 - [GitHub repository](https://github.com/sappelen/Libiry)
 - [Report issues](https://github.com/sappelen/Libiry/issues)
 

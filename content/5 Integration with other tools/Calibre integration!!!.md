@@ -4,7 +4,7 @@ title: Calibre integration
 
 Calibre is a powerful ebook management tool. It rigidly enforces `Author/Title/` folders, though. Libiry can work with that folder structure as well, but does not enforce it.
 
-Because Libiry allows you to store your books any way you want, the 
+Because Libiry allows you to store your books any way you want, the !!!
 
 When you maintain book metadata, you must either do that in Calibre or in Libiry. Because Libiry allows you to have your own folder structure, Calibre's OPF solution will not work.  or your metadata however, but has a different way of editing metadata when you want to edit tags and other book metadata, complements Calibre by providing:
 - Visual grid-based browsing
@@ -13,15 +13,14 @@ When you maintain book metadata, you must either do that in Calibre or in Libiry
 - Mobile-friendly interface
 
 **Typical workflow:**
-- Use Libiry for visual browsing, searching, metadata management, and as a starting point to read
+- Use Libiry for visual browsing, searching and as a starting point to read
 - Use Calibre to read individual books, track your progress in these books and convert them to other formats
 
 ## Setup
 
 ### Optional: convert some book formats to streamline your book collection first
 
-Libraries can get messy when they contain lots of small files. If you like to use your own folder structure but would like to limit the number of OPF files, consider converting your CBR files to CBZ files and your MOBI, AZW and AZW3 files to EPUB files. You can do that in Calibre. It will eliminate the need for separate OPF files for these books.
-You can 
+Libraries can get messy when they contain lots of small files. If you like to use your own folder structure but would like to limit the number of sidecar files, consider converting your CBR files to CBZ files and your MOBI, AZW and AZW3 files to EPUB files. You can do that in Calibre or in other tools. It will eliminate the need for separate sidecar files for these books.
 
 ### Point Libiry to your Calibre Library
 
@@ -56,7 +55,7 @@ Libiry allows any given folder structure. It reads all folder reads:
 - Metadata from ebook files
 
 With the tool [Calibre2Libiry](3%20Calibre2Libiry/index.md) you can rename all of Calibre's opf files and image files from
-  - metadata.opf → book.pdf.opf
+  - metadata.opf → book.pdf.md
   - cover.jpg → book.pdf.jpg
   - cover.png → book.pdf.png
   
@@ -91,15 +90,13 @@ With the tool [Calibre2Libiry](3%20Calibre2Libiry/index.md) you can rename all o
 - Edit in Calibre → visible in Libiry
 - Edit in Libiry → visible in Calibre (after refresh)
 
-**Other formats:** May require OPF files
+**Other formats:** May require sidecar files
 
 ### PDF tags
 
 Calibre stores PDF tags differently:
 - Calibre uses metadata.opf in the book folder
-- Libiry uses the PDF _keywords_ field or an OPF file
-
-For best compatibility, use Libiry's OPF files for PDFs.
+- Libiry uses the PDF _keywords_ field or a markdown file
 
 ## Calibre plugins
 

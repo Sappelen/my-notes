@@ -1,26 +1,35 @@
 ---
-title: PDF Tag Checker
+title: Check and consolidate metadata utility
 ---
-The PDF Tag Checker identifies PDFs that cannot read or write tags directly, and automatically creates OPF files for them.
+This tool:
+- Removes redundant sidecars (those where all fields are empty)
+- Checks if there are any conflicting metadata (sidecar metadata differ from file metadata)
+- Tests PDFs and creates sidecar files for problematic ones
+- ==Incorporates metadata into PDFs for those PDFs where metadata can be written directly into the PDF==
+- Generates a full report
 
-## Purpose
+## Use cases
 
-Some PDFs have encryption, unusual structures, or other characteristics that prevent direct metadata editing. This utility:
 
-1. Tests each PDF for tag read/write capability
-2. Identifies problematic PDFs
-3. Creates OPF buddy files for problematic PDFs
-4. Reports results
+When you have cleaned up some of your metadata outside of Libiry (for example in Obsidian), your sidecars may have become empty shells. With this tool you can delete empty sidecars completely.
+
+Some PDFs have encryption, unusual structures or other characteristics that prevent direct metadata editing. This tool identifies PDFs that cannot read or write metadata directly, and automatically creates OPF files for them.
+
 
 ## Usage
 
-### Basic Usage
+  There are 3 executables with which you can start this function:
+  - check_and_consolidate_metadata.bat - Windows (double click)
+  - check_and_consolidate_metadata.sh - Linux/macOS (bash)
+  - check_and_consolidate_metadata.ps1 - PowerShell (cross platform)
+
+### Basic usage
 
 ```bash
 python check_pdf_tags.py [folder]
 ```
 
-If no folder is specified, scans the current directory.
+If no folder is specified, the function scans the current directory.
 
 ### Examples
 
@@ -35,7 +44,7 @@ python check_pdf_tags.py
 python check_pdf_tags.py "C:\Books\Technical"
 ```
 
-### Using Virtual Environment (Windows)
+### Using virtual environment (Windows)
 
 ```batch
 cd C:\Libiry
@@ -44,7 +53,7 @@ venv\Scripts\python.exe check_pdf_tags.py "C:\Books"
 
 ## Output
 
-### Progress Display
+### Progress display
 
 ```
 Scanning folder: C:\Books
@@ -58,7 +67,7 @@ Found 42 PDF files. Testing tag support...
 ...
 ```
 
-### Summary Report
+### Summary report
 
 ```
 ============================================================
@@ -77,22 +86,28 @@ OPF buddy files created for 4 PDFs.
 Tags for these PDFs will be stored in the OPF files.
 ```
 
-## What Gets Tested
+## What gets tested
+
+### Metadata inconsistent?
+
+For language codes, Libiry uses a mapping between ISO 639-1 (2-letter) and ISO 639-2 (3-letter) in file language_codes.txt. You can add custom mappings to the file. When your epub has language code nld, and your sidecar file has NL, that is not seen as inconsistent.
+
+When the OPF has a less precise language code (like "NL") and the EPUB itself has the more precise code (like "nld"), copying "NL" to the sidecar adds no value. Let me implement this logic in Calibre2Libiry.
 
 For each PDF, the utility:
 
 1. **Opens** the PDF file
-2. **Reads** current metadata
+2. **Reads** the current metadata
 3. **Writes** a test tag
 4. **Saves** the file (incremental save)
-5. **Reads** to verify tag was saved
-6. **Restores** original metadata (removes test tag)
+5. **Reads** to verify the tag was saved
+6. **Restores** the original metadata (and thus removes the test tag again)
 
 If any step fails, the PDF is marked as problematic.
 
-## OPF Files
+## OPF files
 
-### What They Are
+### What they are
 
 OPF (Open Packaging Format) files are XML files that store metadata alongside the PDF. When Libiry encounters a problematic PDF, it uses the OPF file instead of the PDF's internal metadata.
 
@@ -110,13 +125,13 @@ For a file named f.e. `book.pdf`, an accompanying OPF file `book.pdf.opf` is cre
 </package>
 ```
 
-### How Libiry Uses OPF files
+### How Libiry uses OPF files
 
 1. When reading metadata, Libiry checks if an OPF file exists
 2. If the metadata cannot be read from the PDF, they are read from the OPF instead
 3. When writing metadata, the OPF is used if the data cannot be written to the PDF
 
-## Common Failure Reasons
+## Common failure reasons
 
 | Error                      | Cause                                           | Solution             |
 | -------------------------- | ----------------------------------------------- | -------------------- |
@@ -126,38 +141,38 @@ For a file named f.e. `book.pdf`, an accompanying OPF file `book.pdf.opf` is cre
 | `Unable to open document`  | Corrupted or unsupported PDF                    | Check file integrity |
 | `PyMuPDF not installed`    | Missing dependency                              | Run install.bat      |
 
-## When to Run
+## When to run
 
-### Initial Setup
+### Initial setup
 
 Run once on your entire library:
 ```bash
 python check_pdf_tags.py "D:\Books"
 ```
 
-### After Adding New PDFs
+### After adding new PDFs
 
 Run on new additions:
 ```bash
 python check_pdf_tags.py "D:\Books\NewArrivals"
 ```
 
-### After Updates
+### After updates
 
 No need to re-run on already-checked PDFs. OPF files persist.
 
 ## Integration with Libiry
 
-### Automatic Detection
+### Automatic detection
 
 When you edit tags in Libiry:
 
-1. Libiry checks if OPF exists
-2. If yes, uses OPF for tag storage
-3. If no, tries direct PDF metadata
-4. If that fails, creates OPF file
+1. Libiry checks if an OPF file exists
+2. If so, it uses the OPF file for metadata storage
+3. If not, it tries to edit PDF metadata directly
+4. If that fails, it creates an OPF file
 
-### Manual Pre-Check
+### Manual pre-check
 
 Running `check_pdf_tags.py` in advance:
 - Identifies all problematic PDFs upfront
@@ -171,20 +186,20 @@ Currently the script has no command-line options. It:
 - Always creates OPF files for failures
 - Always shows verbose progress
 
-## Technical Details
+## Technical details
 
-### Test Tag
+### Test tag
 
 A temporary tag `__libiry_test_tag__` is used for testing and removed after.
 
-### Save Method
+### Save method
 
 Uses PyMuPDF's incremental save with encryption preservation:
 ```python
 doc.save(path, incremental=True, encryption=fitz.PDF_ENCRYPT_KEEP)
 ```
 
-### Existing Tags
+### Existing tags
 
 If the PDF already has tags (keywords), they are:
 1. Read before testing

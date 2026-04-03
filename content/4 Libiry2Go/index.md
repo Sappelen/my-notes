@@ -30,15 +30,16 @@ python libiry2go.py "C:\Books" "C:\Output" 50
 
 ## When to use Libiry2Go
 
-| Scenario                           | Use Libiry2Go?                        |
-| ---------------------------------- | ------------------------------------- |
-| Create book library for mobile use | Yes                                   |
-| Create Obsidian book vault         | Yes                                   |
-| Backup library metadata            | Yes                                   |
-| Share reading list                 | Yes                                   |
-| Browse books visually              | No; use complete book library instead |
-| Edit book metadata                 | No; use complete book library instead |
-|                                    |                                       |
+| Scenario                                     | Use Libiry2Go?                                                                 |
+| -------------------------------------------- | ------------------------------------------------------------------------------ |
+| Create book library for mobile use           | Yes                                                                            |
+| Create Obsidian book vault                   | Yes                                                                            |
+| Store your ebooks inside your Obsidian vault | Yes, but storing all your book metadata in the sidecar files is also an option |
+| Backup library metadata                      | Yes                                                                            |
+| Share reading list                           | Yes                                                                            |
+| Browse books visually                        | No; use the complete book library instead                                      |
+| Edit book metadata                           | No; use the complete book library instead                                      |
+|                                              |                                                                                |
 ## Further reading
 
 - [Libiry2Go for developers](Libiry2Go%20for%20developers.md) 

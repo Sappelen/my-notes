@@ -78,4 +78,4 @@ Content sanitization:
 - Backslashes in the path name → forward slashes
 - Intermediate quotes in field values are removed
 
-Read more about Libiry's [[Obsidian integration]].
+Read more about Libiry's [[Obsidian integration!!!]].

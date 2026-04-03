@@ -1,7 +1,6 @@
 ---
 title: Contributing to Libiry
 ---
-
 Thank you for your interest in contributing to the Libiry ecosystem!
 ## Getting started
 
@@ -181,7 +180,6 @@ Include:
 - Expected vs actual behavior
 - Error messages (from debug mode)
 - Screenshots if applicable
-
 ### Feature requests
 
 Describe:

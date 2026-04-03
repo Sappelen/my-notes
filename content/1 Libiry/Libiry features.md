@@ -1,34 +1,40 @@
 ---
 title: Libiry features
 ---
-
 ## Visual book grid
 
 Libiry displays your books as a grid of cover images, making it easy to browse your collection visually.
 
 ### Cover display
-- Covers are automatically extracted from EPUB, PDF, MOBI, CBZ files
+
+- Covers are automatically extracted from EPUB, PDF, MOBI and CBZ files
 - An SQLite-based cache means fast loading
 - When no cover is available, author + title are displayed
 
+### Rating
+
+You can use quarter stars (ex. 3.75/5)
 ### Visual indicators
-- Red triangle - Book has "summary" tag
-- Gray triangle - Book has "analog" tag (physical book)
+
+- Red triangle - The book has a "summary" tag
+- Gray triangle - The book has an "analog" tag (physical book)
 - Folder icons - Navigable folder tiles
 
 ## Search and navigation
 
 ### Search
+
 - Searches up to 10 levels deep
 - Case-insensitive
 - Fuzzy search is possible (matches characters in any order)
 - Type one of the supported file types in the search box (f.e. ".epub") to search on that file type
 
 ### Navigation
+
 - Click Up to go to the parent folder
 - Click Refresh to reload the current view
 
-## Tag Management
+## Tag management
 
 ### Viewing tags
 - Tags displayed in status bar
@@ -46,13 +52,15 @@ Libiry displays your books as a grid of cover images, making it easy to browse y
 3. Click "Edit Tags"
 4. Add new tags or remove existing ones
 
-Tags are stored:
+Metadata are stored:
 - **EPUB** - In the ebook file itself
-- **MOBI/AZW/AZW3** - In OPF sidecar file
-- **CBR** - In OPF sidecar file
+- **MOBI/AZW/AZW3** - In a sidecar file
+- **CBR** - In a sidecar file
 - **CBZ** - In ComicInfo.xml
-- **PDF** - In file metadata or OPF sidecar
+- **PDF** - In file metadata or in a sidecar file
 - **Markdown** - In the file content
+
+When you want to, Libiry can store ALL metadata in markdown files instead 
 
 ## Duplicate detection (Twins filter)
 
@@ -64,20 +72,21 @@ Find duplicate books in your collection:
    - Exact ISBN match
    - Normalized title + author match
 
-### Normalization Rules
+### Normalization rules
+
 - Removes articles: "The", "A", "An", "De", "Het", "Een"
 - Removes author suffixes: "Jr", "Sr", "PhD"
 - Sorts author name parts alphabetically
 - Case-insensitive comparison
 
-## File Management
+## File management
 
-### Move Files
+### Move files
 1. Select files
 2. Right-click → Move
 3. Choose destination folder
 
-### Delete Files
+### Delete files
 1. Select files
 2. Right-click → Delete
 3. Confirm deletion
@@ -85,6 +94,7 @@ Find duplicate books in your collection:
 Files are moved to the system trash (recoverable) if the system settings allow that. Otherwise, they are permanently deleted.
 
 ### Warnings
+
 - Moving/deleting multiple files shows a warning
 ## Customization
 
@@ -105,7 +115,7 @@ All colors are customizable:
 - Hide or show book title
 - Hide or show tags
 
-### File Types
+### File types
 Configure which file types to display in `selected types.txt`
 
 ## Metadata extraction
@@ -130,12 +140,10 @@ Configure which file types to display in `selected types.txt`
 | CBR/CBZ     | Basic         | Yes   |
 | Markdown    | Full          | Yes   |
 | Other files | Filename only | No    |
-
-
-### Markdown Support
-Two formats are supported:
+### Markdown support
 
 **YAML Frontmatter (compatible with Obsidian):**
+
 ```yaml
 ---
 cover: "cover.jpg"
@@ -145,15 +153,7 @@ tags: [fiction, fantasy]
 ---
 ```
 
-**Flat Format (Libiry/BookSpineScanner):**
-```
-[cover]: cover.jpg
-[booktitle]: The Book Title
-[author]: Author Name
-[tags]: fiction, fantasy
-```
-
-## Goodreads Compatibility
+## Goodreads compatibility
 
 Field names follow Goodreads CSV format:
 - `booktitle` → Title
@@ -165,7 +165,7 @@ Field names follow Goodreads CSV format:
 
 All field names are configurable for compatibility with existing setups.
 
-## Performance Features
+## Performance features
 
 - **Lazy loading** - Only visible items are loaded
 - **SQLite cache** - Thumbnails are cached for instant loading

@@ -39,7 +39,7 @@ Portable Document Format.
 | Extract cover | ✓ First page thumbnail |
 | Write tags | ✓ In keywords field or OPF sidecar |
 
-Some PDFs with encryption or complex structures use OPF sidecar files for tag storage. Use the [PDF Tag Checker](PDF%20Tag%20Checker.md) utility to identify these.
+Some PDFs with encryption or complex structures use OPF sidecar files for tag storage. Use the [Check and consolidate metadata utility](Check%20and%20consolidate%20metadata%20utility.md) utility to identify these.
 
 ## Comic formats
 
@@ -126,15 +126,15 @@ For formats that don't support direct tag editing, Libiry uses OPF (Open Packagi
 
 Any file type can be added to your library. For formats not listed above (such as `.rtf`, `.mp3`, `.txt`, `.docx`, etc.), Libiry automatically uses OPF sidecar files for tag storage.
 
-| Feature | Support |
-|---------|---------|
-| Display in grid | ✓ Shows filename |
-| Read metadata | Filename only |
-| Write tags | ✓ Via OPF buddy file |
+| Feature         | Support                |
+| --------------- | ---------------------- |
+| Display in grid | ✓ Shows filename       |
+| Read metadata   | Filename only          |
+| Write tags      | ✓ Via OPF sidecar file |
 
 Simply add the file extension to `selected types.txt` and Libiry will handle it.
 
-**Note:** `.opf` files themselves are not displayed as books.
+**Note:** OPF files themselves are not displayed as books.
 
 ## File type filtering
 

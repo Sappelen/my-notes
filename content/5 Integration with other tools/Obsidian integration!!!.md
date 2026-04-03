@@ -1,37 +1,37 @@
 ---
 title: Obsidian integration
 ---
-Obsidian is a powerful app that uses markdown files. Libiry's markdown support makes it fully compatible with Obsidian vaults. Use Libiry alongside Obsidian for comprehensive book management and knowledge linking. It can handle extra fields anddifferent field sequences.
+Obsidian is a powerful app that uses markdown files. Libiry's markdown support makes it as goos as fully compatible with Obsidian vaults. Use Libiry alongside Obsidian for comprehensive book management and knowledge linking. It can handle extra fields and different field sequences.
 
 **Use cases:**
 - Create book notes linked to your library
 - Track reading progress with Dataview
 - Build a personal knowledge base around your books
 - Sync book metadata across devices
+- Store your entire book collection inside your Obsidian vault
 
 ## Setup
 
 ### Option 1: Libiry2Go export
 
 1. Run [Libiry2Go](4%20Libiry2Go/index.md) on your book library
-2. Use the "one file per book" mode
-3. Place the output in your Obsidian vault
+2. Place the output in your Obsidian vault
 
 ```bash
-python libiry2go.py "C:\Books" "C:\Obsidian\Books" 1
+python libiry2go.py "C:\Books" "C:\Obsidian\Books" 
 ```
 
 ### Option 2: Libiry BookSpineScanner export
 
 1. Scan your physical books
-2. Use the "one file per book" mode
-3. Place the output in your Obsidian vault
+2. Place the output in your Obsidian vault
 ### Option 3: Direct library access
 
-1. Place your library folder in your Obsidian vault
-2. Or point Obsidian to your library folder
-3. Books and book notes coexist
-## File Format
+1. Change your settings to 'store metadata in sidecar'
+2. Run [Libiry2Go](4%20Libiry2Go/index.md) on your book library
+3. Place your library folder inside an Obsidian vault
+4. Books and book notes coexist
+## File format
 
 Libiry uses YAML frontmatter compatible with Obsidian:
 
@@ -72,7 +72,9 @@ summary: "Offred is a Handmaid in the Republic of Gilead..."
 # Note
 
 In Libiry and other book management tools, you can use almost anything as a tag (for example: "Columns & Interviews Language: English"). In Obsidian these kind of tags will be considered incorrect.
-## Obsidian Plugins
+
+In Libiry, multiline descriptions or notes can contain almost anything. In Obsidian, some of these  descriptions or notes will be considered incorrect in the YAML part of the note.
+## Obsidian plugins
 
 ### Dataview
 
@@ -90,10 +92,9 @@ SORT rating DESC
 ```dataview
 LIST
 FROM "Books"
-WHERE tags = "reading"
+WHERE tags = "status/reading"
 SORT file.file_modified DESC
 ```
-
 ### Book search
 
 The Book Search plugin can create book notes:

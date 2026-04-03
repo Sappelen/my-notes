@@ -31,7 +31,7 @@ Tesseract.js is an open-source OCR engine that runs entirely in your browser. No
 - **Small text** - May miss fine print
 - **Processing time** - Slower than cloud APIs
 
-### Best For
+### Best for
 
 - Privacy-conscious users
 - Offline use
@@ -66,14 +66,14 @@ Google Cloud Vision is a cloud-based AI service with superior OCR capabilities. 
 - **Usage costs** - Free tier, then $1.50/1000 images
 - **Privacy** - Photos sent to Google
 
-### Best For
+### Best for
 
 - Difficult-to-read spines
 - Large scanning sessions
 - Books with vertical text
 - Maximum accuracy needed
 
-### Setting Up Google Cloud Vision
+### Setting up Google Cloud Vision
 
 1. **Create Google Cloud Account**
    - Go to [console.cloud.google.com](https://console.cloud.google.com)
@@ -94,7 +94,7 @@ Google Cloud Vision is a cloud-based AI service with superior OCR capabilities. 
    - Paste API key in "Google Cloud Vision API Key"
    - Select "Google Cloud Vision" as OCR engine
 
-### Free Tier Limits
+### Free tier limits
 
 Google Cloud Vision offers:
 - 1,000 free images per month
@@ -102,9 +102,9 @@ Google Cloud Vision offers:
 
 For most home libraries, the free tier is sufficient.
 
-## Choosing an Engine
+## Choosing an engine
 
-### Use Tesseract.js When:
+### Use Tesseract.js when:
 
 - Scanning occasional books
 - Privacy is important
@@ -112,7 +112,7 @@ For most home libraries, the free tier is sufficient.
 - Books have clear, large spine text
 - Cost is a concern
 
-### Use Google Cloud Vision When:
+### Use Google Cloud Vision when:
 
 - Scanning large collections
 - Many books have small/rotated text
@@ -120,7 +120,7 @@ For most home libraries, the free tier is sufficient.
 - You have good internet
 - Already using Google Cloud
 
-## Switching Engines
+## Switching engines
 
 1. Open BookSpineScanner
 2. Click Settings (gear icon)
@@ -130,7 +130,7 @@ For most home libraries, the free tier is sufficient.
 
 The setting persists in your browser.
 
-## Language Support
+## Language support
 
 Both engines support multiple languages:
 

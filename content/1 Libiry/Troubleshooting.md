@@ -47,9 +47,10 @@ brew install mupdf
 **Problem:** Double-clicking `run.bat` does nothing.
 
 **Solution:**
-1. Run `run_debug.bat` instead to see error messages
-2. Check if virtual environment exists in `venv/` folder
-3. Re-run `install.bat`
+1. Check if there any Python processes still running on your computer. Close these or restart your computer
+2. Run `run_debug.bat` instead to see error messages
+3. Check if virtual environment exists in `venv/` folder
+4. Re-run `install.bat`
 
 ### Blank window / no books shown
 
@@ -58,7 +59,7 @@ brew install mupdf
 **Solutions:**
 1. Check Settings → Location is set correctly
 2. Verify the folder contains supported file types
-3. Check "Only selected file types" setting
+3. Check the "Only selected file types" setting
 4. Press F5 to refresh
 
 ### Slow startup
@@ -66,13 +67,13 @@ brew install mupdf
 **Problem:** Libiry takes a long time to start.
 
 **Solutions:**
-1. Large libraries take longer on first scan
-2. Check network connection (cover lookup may timeout)
-3. Move library to SSD if on HDD
-4. Reduce folder depth (fewer nested folders)
+1. Large libraries take longer on the first scan
+2. Check your network connection (cover lookup may timeout for slow connections)
+3. Move your library to SSD if on HDD
+4. Reduce your folder depth (fewer nested folders)
 5. Uncheck the 'Show tags' box in Settings
 
-## Display Issues
+## Display issues
 
 ### Covers not showing
 
@@ -86,26 +87,23 @@ brew install mupdf
 
 ### Only one cover shown for a multibook file
 
-**Problem:** A markdown file contains multiple books, but only one cover is shown in the grid
+**Problem:** A markdown file contains multiple books, but only one cover is shown in the grid.
 
-**Solution:** Change your Libiry field names to match those in the markdown file
+**Solution:** Change your Libiry field names to match those in the markdown file.
 
 ### Text too small/large
 
 **Problem:** UI elements are wrong size.
 
 **Solution:**
-Edit `customize/customize.txt`:
-```ini
-Font size: 16
-```
+Change your font size.
 
 ### High DPI scaling issues
 
-**Problem:** UI looks tiny on high-resolution display.
+**Problem:** The UI looks tiny on a high-resolution display.
 
 **Solution:**
-Increase font size in configuration. Kivy may not auto-scale on all systems.
+Increase the font size under Settings. Kivy may not auto-scale on all systems.
 
 ## Tag Issues
 
@@ -114,7 +112,7 @@ Increase font size in configuration. Kivy may not auto-scale on all systems.
 **Problem:** Tags disappear after saving.
 
 **Solution:**
-MOBI/AZW files use OPF sidecar files. Check if `.opf` file was created next to the book. Ensure write permissions in the folder.
+MOBI/AZW files use OPF sidecar files. Check if an OPF file was created next to the book. Ensure write permissions in the folder.
 
 ### Tags not saving (PDF)
 
@@ -127,14 +125,14 @@ MOBI/AZW files use OPF sidecar files. Check if `.opf` file was created next to t
 
 ### Tags not reading from Calibre
 
-**Problem:** Calibre tags not visible in Libiry.
+**Problem:** Calibre tags are not visible in Libiry.
 
 **Solution:**
-Calibre stores tags differently. For PDFs, Calibre uses the Subject field while Libiry uses Keywords. Use OPF sidecar files for consistent storage.
+Calibre stores tags differently. For PDFs, Calibre uses the subject field while Libiry uses Keywords. Use OPF sidecar files for consistent storage.
 
-## Search Issues
+## Search issues
 
-### Search not finding books
+### Search isn't finding books
 
 **Problem:** Books exist but search doesn't find them.
 
@@ -154,28 +152,27 @@ Disable fuzzy search for more precise matching:
 Fuzzy search y/n: N
 ```
 
-## Performance Issues
+## Performance issues
 
 ### High memory usage
 
 **Problem:** Libiry uses too much RAM.
 
 **Solutions:**
-1. Large markdown files with many books use more memory
-2. Limit to 100 books per markdown file
-3. Close other applications
-4. Reduce grid zoom level
+1. Close other applications
+2. Reduce grid zoom level
+3. Divide large folders into subfolders
 
 ### Slow scrolling
 
 **Problem:** Grid scrolling is laggy.
 
 **Solutions:**
-1. Reduce number of visible tiles (zoom out less)
-2. Ensure thumbnail cache is working (`~/.libiry/cache/`)
-3. Use SSD for library storage
+1. Reduce the number of visible tiles (zoom out less)
+2. Make sure that thumbnail cache is working (`~/.libiry/cache/`)
+3. Use an SSD for library storage
 
-## File Issues
+## File issues
 
 ### "Permission denied" when saving
 
@@ -199,29 +196,30 @@ Press F5 to refresh the view.
 **Problem:** Move operation doesn't work.
 
 **Solutions:**
-1. Check destination folder exists
-2. Check write permissions
-3. Ensure file isn't open in another program
+1. Check if the destination folder exists
+2. Check the write permissions
+3. Make sure that the file isn't open in another program
 
-## Getting Help
+## Getting help
 
-### Debug Mode
+### Debug mode
 
-Run with console output to see errors:
+Run with console output to see error messages:
 ```batch
 run_debug.bat
 ```
 
-### Log Files
+### Log files
 
 Check for errors in the console output. No separate log files are created.
 
-### Reporting Issues
+### Reporting issues
 
 When reporting bugs, include:
 1. Operating system and version
 2. Python version (`python --version`)
 3. Error message from debug mode
 4. Steps to reproduce
+5. Example files
 
-Report issues at: [GitHub Issues](https://github.com/sappelen/Libiry/issues)
+Report issues at: [GitHub Issues](https://github.com/sappelen/Libiry/issues) or [Reddit](https://www.reddit.com/r/libiry/). Please take into account that I am just one person, doing this free of charge.

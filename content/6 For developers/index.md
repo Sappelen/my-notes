@@ -92,7 +92,7 @@ BookSpineScanner/
 └── package.json         # Dependencies
 ```
 
-## Key Technologies
+## Key technologies
 
 ### Libiry
 
@@ -112,7 +112,7 @@ BookSpineScanner/
 - **PWA** - Progressive Web App features
 - **IndexedDB** - Local data caching
 
-## API Reference
+## API reference
 
 ### metadata_extractor.py
 

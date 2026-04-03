@@ -1,10 +1,9 @@
 ---
 title: Architecture
 ---
-
 Detailed technical documentation of the Libiry ecosystem architecture.
 
-## System Overview
+## System overview
 
 ```
 ┌───────────────────────────────────────────────────────────────────┐
@@ -29,19 +28,19 @@ Detailed technical documentation of the Libiry ecosystem architecture.
 │           ▼                                         ▼             │
 │  ┌─────────────────────────────────────────────────────────────┐  │
 │  │                    File System                              │  │
-│  │  ┌──────┐ ┌──────┐ ┌──────┐ ┌──────┐ ┌──────┐ ┌──────────┐  │  │
-│  │  │ EPUB │ │ MOBI │ │ PDF  │ │ CBZ  │ │ CBR  │ │ Markdown │  │  │
-│  │  └──────┘ └──────┘ └──────┘ └──────┘ └──────┘ └──────────┘  │  │
+│  │  ┌──────┐ ┌─────┐ ┌─────┐ ┌──────────┐ ┌───────┐            │  │
+│  │  │ EPUB │ │ CBZ │ │ PDF │ │ Markdown │ │ Other │            │  │
+│  │  └──────┘ └─────┘ └─────┘ └──────────┘ └───────┘            │  │
 │  │                         │                                   │  │
-│  │  ┌────────────────────────┴──────────────────────────────┐  │  │
-│  │  │              OPF sidecar (buddy) files                │  │  │
-│  │  │    (for MOBI, AZW, CBR, problematic PDFs)             │  │  │
+│  │  ┌──────────────────────┴────────────────────────────────┐  │  │
+│  │  │               Markdown sidecar files                  │  │  │
+│  │  │ (for all file types except EPUB, CBZ and most PDFs)   │  │  │
 │  │  └───────────────────────────────────────────────────────┘  │  │
 │  └─────────────────────────────────────────────────────────────┘  │
 └───────────────────────────────────────────────────────────────────┘
 ```
 
-## Libiry Desktop Application
+## Libiry desktop application
 
 ### Application Structure
 
@@ -130,11 +129,11 @@ Format-specific extractors:
 - `_extract_comic()` - Uses comicbox
 - `_extract_markdown()` - Custom parser
 
-OPF sidecar functions:
-- `get_opf_path()` - Generate OPF path for any file
-- `read_opf_tags()` - Parse OPF XML for tags
-- `write_opf_tags()` - Create/update OPF with tags
-- `modify_opf_tags()` - Add/remove specific tags
+sidecar functions:
+- `get_sidecar_path()` - Generate sidecar path for any file
+- `read_sidecar_tags()` - Parse sidecar for tags
+- `write_sidecar_tags()` - Create/update sidecar with tags
+- `modify_sidecar_tags()` - Add/remove specific tags
 
 #### cover_extractor.py
 
@@ -200,7 +199,7 @@ Cache structure:
    │           ├── Save to cache
    │           └── Generate thumbnail
    ├── Extract metadata
-   │   ├── Check for OPF sidecar
+   │   ├── Check for sidecar
    │   └── Read from file
    └── Create grid tile
         │
@@ -220,10 +219,10 @@ Cache structure:
 3. For each selected file:
    ├── Determine storage method:
    │   ├── EPUB: Write to ebook
-   │   ├── MOBI/AZW: Write to OPF
+   │   ├── MOBI/AZW: Write to sidecar
    │   ├── CBZ: Write to ComicInfo.xml
-   │   ├── CBR: Write to OPF
-   │   ├── PDF: Try ebook, fallback to OPF
+   │   ├── CBR: Write to sidecar
+   │   ├── PDF: Try ebook, fallback to sidecar
    │   └── Markdown: Write to file
    └── Update file
         │
@@ -333,21 +332,9 @@ Confidence Scoring
      └── Low (<50%): Red
 ```
 
-## Data Formats
+## Data formats
 
-### OPF Sidecar Format
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<package xmlns="http://www.idpf.org/2007/opf" version="3.0">
-  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
-    <dc:subject>tag1</dc:subject>
-    <dc:subject>tag2</dc:subject>
-  </metadata>
-</package>
-```
-
-### Markdown YAML Format
+### Markdown (sidecar) YAML format
 
 ```yaml
 ---
@@ -359,43 +346,21 @@ tags: [tag1, tag2]
 rating: 8
 ---
 ```
+## Performance considerations
 
-### Markdown Flat Format
-
-The minimum requirement is a cover line. In it, you can put author plus title. You can create files like this completely by hand, if you want to:
-```
-cover: author 1 - title 1
-cover: author 1 - title 2
-cover: author 2 - title 3
-cover: author 3 - title 4
-cover: author 4 - title 5
-```
-etcetera.
-
-The LibiryBookSpineSpanner produces structured files like this:
-```
-cover: url
-booktitle: Title
-author: Author
-tags: tag1, tag2
-```
-
-
-## Performance Considerations
-
-### Lazy Loading
+### Lazy loading
 
 - Grid only renders visible tiles
 - Covers loaded on demand
 - Metadata extracted as needed
 
-### Caching Strategy
+### Caching strategy
 
 - SQLite for thumbnails
 - In-memory for current folder
 - No caching of raw metadata
 
-### Background Threading
+### Background threading
 
 - Folder scans run in background
 - UI remains responsive
@@ -403,7 +368,7 @@ tags: tag1, tag2
 
 ## Security
 
-### File Access
+### File access
 
 - Read/write only to user-specified folders
 - No network access except for cover lookup

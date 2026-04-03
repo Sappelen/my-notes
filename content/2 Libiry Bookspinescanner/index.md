@@ -3,12 +3,12 @@ title: 2. Libiry BookSpineScanner
 ---
 The Libiry BookSpineScanner is a Progressive Web App (PWA) that identifies books with spine OCR and barcode detection. It gives you flat markdown files that can be used in Libiry, Obsidian and other tools.
 
-![[https://marjonw.wordpress.com/wp-content/uploads/2026/03/bookspinescanner.png]]
+![[https://marjonw.wordpress.com/wp-content/uploads/2026/03/bookspinescanner-1.png]]
 
 ## How it works
 
-1. Open the [BookSpineScanner](https://sappelen.github.io/BookSpineScanner/)
-2. Check the settings. Which OCR Engine do you want to use?
+1. Open the [Libiry BookSpineScanner](https://sappelen.github.io/BookSpineScanner/)
+2. Check the settings. Which OCR engine do you want to use?
 3. Take a photo of your bookshelf (or upload a photo)
 4. The tool detects individual book spines
 5. The tool uses [OCR](OCR%20engines%20used%20in%20the%20Libiry%20BookSpineScanner.md) to extract text from each spine
@@ -46,12 +46,12 @@ Keep your scan photos until you've verified the export. If you find errors later
 ## Key features
 
 - **Spine OCR** - Reads text from book spines
-- **Barcode Scanning** - Detects ISBN barcodes
-- **Multiple OCR Engines** - Tesseract.js (offline) or Google Cloud Vision
-- **Book Lookup** - Searches Open Library, Google Books, Europeana, Library of Congress
-- **Confidence Indicators** - Shows match quality for each book
-- **Export to Markdown** - Compatible with Libiry and Obsidian
-- **Works Offline** - After initial load, Tesseract.js works without internet
+- **Barcode scanning** - Detects ISBN barcodes
+- **Multiple OCR engines** - Tesseract.js (offline) or Google Cloud Vision
+- **Book lookup** - Searches Open Library, Google Books, Europeana, Library of Congress
+- **Confidence indicators** - Shows match quality for each book
+- **Export to markdown** - Compatible with Libiry and Obsidian
+- **Works offline** - After the initial load, Tesseract.js works without internet
 - **Installable** - Add to home screen on mobile devices
 
 ## Barcode mode
@@ -64,6 +64,9 @@ For books with a visible ISBN barcode:
 - Books are looked up by ISBN in Open Library, Google Books, Europeana and Library of Congress
 - If a book is not found in these databases, a WorldCat search link is provided as the book title -- click it to look up the book manually
 
+## Book lookup
+
+Four book databases are used for this: Open Library, Google Books, Europeana and Library of Congress. The match with the highest confidence score is chosen. In case of equal scores, the result that has a cover image is chosen.
 ## Supported platforms
 
 | Platform | Browser         | Installation       |
