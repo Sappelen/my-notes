@@ -26,7 +26,7 @@ With the Libiry BookspineScanner, you can add your physical books to your ebook 
 ### Getting started
 - [Quick start guide](Getting%20started%20with%20Libiry.md) - Get up and running in minutes
 - [Installation guide](Libiry%20installation%20guide.md) - Detailed installation instructions
-- [Your first scan](Scanning.md) - Start cataloging your physical books
+- [Your first scan](Scanning%20guide.md) - Start cataloging your physical books
 
 ### Features
 - [Libiry Features Overview](Libiry%20features.md)

@@ -1,58 +1,71 @@
 ---
 title: 2. Libiry BookSpineScanner
 ---
-The Libiry BookSpineScanner is a Progressive Web App (PWA) that identifies books with spine OCR and barcode detection. It gives you flat markdown files that can be used in Libiry, Obsidian and other tools.
+The Libiry BookSpineScanner is a Progressive Web App (PWA) that identifies books with spine OCR and barcode detection. It gives you [markdown](https://en.wikipedia.org/wiki/Markdown) (text) files that can be used in Libiry, Obsidian and other tools.
 
-![[https://marjonw.wordpress.com/wp-content/uploads/2026/03/bookspinescanner-1.png]]
-
-## How it works
-
-1. Open the [Libiry BookSpineScanner](https://sappelen.github.io/BookSpineScanner/)
-2. Check the settings. Which OCR engine do you want to use?
-3. Take a photo of your bookshelf (or upload a photo)
-4. The tool detects individual book spines
-5. The tool uses [OCR](OCR%20engines%20used%20in%20the%20Libiry%20BookSpineScanner.md) to extract text from each spine
-6. The tools looks up books in various online databases
-7. Review the results and correct mistakes
-8. Export the results to markdown files
-9. Open the markdown files in Libiry or in another tool
-
-### 7. Review the results and correct mistakes
-
-Confidence indicators:
-- 🟢 **Green** - correct match (>85% confidence that the OCR text matches this book in the database)
-- 🟠 **Orange** - uncertain match (50-85% confidence)
-- 🔴 **Red** - incorrect match (<50% confidence)
-
-Expand each detected book to show preliminary title, title, author, cover image etcetera (if found).
-
-Before exporting, review each detected book. Fix or delete wrong matches and add missing books. Manually add tags to individual books.
-Toggle the colored dot to change the color.
-For red books the preliminary book title is exported instead of the matched book title. 
-
-### 8. Export the results to markdown files
-
-Before exporting, add common tags like:
-- analog (physical book)
-- shelf/bottomleft (location)
-- genre/scifi (genre)
-- status/to-read (reading status)
-to all your books by putting them in the tag box at the bottom of the screen.
-
-You can export one or more markdown files or you can choose to download a ZIP file.
-
-Keep your scan photos until you've verified the export. If you find errors later, you can re-scan.
+![[https://marjonw.wordpress.com/wp-content/uploads/2026/04/libiry-bookspinescanner.png]]
 
 ## Key features
 
 - **Spine OCR** - Reads text from book spines
 - **Barcode scanning** - Detects ISBN barcodes
 - **Multiple OCR engines** - Tesseract.js (offline) or Google Cloud Vision
-- **Book lookup** - Searches Open Library, Google Books, Europeana, Library of Congress
+- **Book lookup** - Witch a.o. Open Library, Google Books, Europeana, Library of Congress
 - **Confidence indicators** - Shows match quality for each book
 - **Export to markdown** - Compatible with Libiry and Obsidian
+- **Customizable** - Change the field names to match those you use in Obsidian or Libiry
 - **Works offline** - After the initial load, Tesseract.js works without internet
 - **Installable** - Add to home screen on mobile devices
+ 
+## How it works
+
+1. Open the [Libiry BookSpineScanner](https://sappelen.github.io/BookSpineScanner/)
+2. Check the settings. Which OCR engine do you want to use? And which book databases?
+3. Take a photo of your bookshelf (or upload a photo)
+4. The tool detects individual book spines
+5. The tool uses [OCR](OCR%20engines%20used.md) to extract text from each spine
+6. The tool looks up books in [various online databases](Book%20databases%20used.md)
+7. Review the results and correct mistakes
+8. Export the results to markdown files
+9. Open the markdown files in Libiry or in another tool
+
+### 7. Review the results and correct mistakes
+
+You'll see that each result has a confidence indicator:
+- 🟢 **Green** - correct match (>85% confidence that the OCR text matches this book in the database)
+- 🟠 **Orange** - uncertain match (50-85% confidence)
+- 🔴 **Red** - incorrect match (<50% confidence)
+
+For incorrect matches (red), the preliminary book title is exported instead of the matched book title. 
+Toggle the confidence indicator to change its value. 
+
+Review each result. Expand rows to view all information.
+
+Fix the wrong matches. 
+Tip: type author and title, set the confidence indicator to green and press Lookup. The BookSpineScanner will then retain the values for author and title, but update the other fields. 
+
+Add tags to individual books.
+
+### 8. Export the results to markdown files
+
+Add tags that all books have in common, like:
+- type/analog (physical book)
+- shelf/bottom-left (location)
+- collection/favorites (collection)
+- genre/scifi (genre)
+- status/to-read (reading status)
+to all your books by putting them in the tag box at the bottom of the screen.
+
+Tip: Keep your scan photos until you've verified the export. If you find errors later, you can re-scan.
+
+## When to use
+
+The Libiry BookSpineScanner works best when:
+- You have many books to catalog
+- The spine text is readable (not too small/faded)
+- Old/damaged books may not OCR well
+- Matching depends on the book being in online databases
+- Some manual corrections are usually needed
 
 ## Barcode mode
 
@@ -61,12 +74,9 @@ For books with a visible ISBN barcode:
 - Enable "Barcode mode" in Settings
 - Take a photo of the barcodes
 - The app reads ISBN numbers directly from the barcodes
-- Books are looked up by ISBN in Open Library, Google Books, Europeana and Library of Congress
-- If a book is not found in these databases, a WorldCat search link is provided as the book title -- click it to look up the book manually
+- Books are looked up by ISBN in various databases
+- If a book is not found in these databases, a WorldCat search link is provided as the book title
 
-## Book lookup
-
-Four book databases are used for this: Open Library, Google Books, Europeana and Library of Congress. The match with the highest confidence score is chosen. In case of equal scores, the result that has a cover image is chosen.
 ## Supported platforms
 
 | Platform | Browser         | Installation       |
@@ -78,29 +88,11 @@ Four book databases are used for this: Open Library, Google Books, Europeana and
 | Linux    | Chrome, Firefox | Install as app     |
 ## Privacy
 
-- **All processing happens in your browser** - Photos never leave your device
+- **All processing happens in your browser** - Your photos never leave your device
 - **No accounts required** - No sign-up, no tracking
 - **Local storage only** - Settings are saved in your browser only
 - **API calls** - Only for book metadata lookup (Open Library etc.)
 
-## Comparison with manual cataloging
-
-| Method                  | Time per Book | Accuracy | Best For          |
-| ----------------------- | ------------- | -------- | ----------------- |
-| Libiry BookSpineScanner | ~5 seconds    | 70-90%   | Large collections |
-| ISBN scanner            | ~30 seconds   | 99%      | Small batches     |
-| Manual entry            | ~2 minutes    | 100%     | Single books      |
-|                         |               |          |                   |
-
-The Libiry BookSpineScanner works best when:
-- You have many books to catalog
-- Books have readable spines
-- You can verify and correct matches
-
-- Spine text must be readable (not too small/faded)
-- Old/damaged books may not OCR well
-- Matching depends on book being in online databases
-- Some manual correction are usually needed
 ### Install as an app (optional)
 
 - **Android (Chrome):** Tap the three-dot menu > "Install app" or "Add to home screen"
@@ -125,39 +117,9 @@ The Libiry BookSpineScanner works best when:
 - Create a project (or select an existing one)
 - Enable the "Cloud Vision API"
 - Go to "Credentials" and create an API key
-- In BookSpineScanner, tap the gear icon (Settings)
+- In the BookSpineScanner, tap the gear icon (Settings)
 - Paste your API key in the "Google Vision API Key" field
 - Select "Google Cloud Vision" as OCR engine
-
-## Book databases
-
-### Google Books
-### Europeana
-
-- Best for historical/European works
-- Get a free key at [pro.europeana.eu](https://pro.europeana.eu/page/get-api)
-### Library of Congress
-   
-- Best for U.S.-published books, especially academic, nonfiction, and trade books
-## Export formats
-
-### One file per photo (default)
-
-- YAML header with scan metadata
-- Each book as a block with 'key: value' lines
-- Compatible with Libiry, readable in any other text editor or reader
-
-### One file per book
-
-- One '.md' file per book
-- All metadata in YAML frontmatter
-- Compatible with Obsidian, Logseq, Calibre, Libiry and any other text editor or reader
-- Download as ZIP when exporting multiple books
-
-## Customizing options
-
-Edit file 'customize/customize.txt' to change the app's appearance.  
-If your existing Obsidian or Libiry setup uses different field names, you can configure them in Settings.
 
 ## Data and privacy
 
@@ -172,10 +134,8 @@ If your existing Obsidian or Libiry setup uses different field names, you can co
 - Refresh Libiry
 
 Libiry reads the book metadata fields 'cover', 'booktitle', 'author', 'isbn', 'publisher', 'year', 'language' and 'tags' from the markdown files.  
-Other fields are ignored by Libiry but preserved in the file.
-
-**Note:** Libiry supports a maximum of 100 books per markdown file for performance reasons. If a scan contains more than 100 books, BookSpineScanner automatically splits the export into multiple files (`shelf_part1.md`, `shelf_part2.md`, etc.).
+Other fields are ignored by Libiry, but preserved in the file.
 ## Further reading
 
-- [Scanning guide](Scanning.md) - How to take good photos and scan books
+- [Scanning guide](Scanning%20guide.md) - How to take good photos and scan books
 - [Export options](Libiry%20BookSpineScanner%20export.md) - Output formats and Obsidian integration

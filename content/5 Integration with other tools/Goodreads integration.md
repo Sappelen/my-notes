@@ -12,7 +12,7 @@ Goodreads is a popular book tracking service. Libiry's field names are compatibl
 
 ## Field mapping
 
-Libiry fields follow Goodreads CSV naming:
+Some Libiry fields correspond to Goodreads fields:
 
 | Libiry field | Goodreads CSV column |
 | ------------ | -------------------- |
@@ -26,7 +26,6 @@ Libiry fields follow Goodreads CSV naming:
 | tags         | bookshelves          |
 | description  | my review            |
 | notes        | private notes        |
-|              |                      |
 
  Some Libiry fields do not exist in Goodreads:
 - cover (link to cover image location or URL)
