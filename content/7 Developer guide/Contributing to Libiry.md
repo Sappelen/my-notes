@@ -1,0 +1,256 @@
+---
+title: Contributing to Libiry
+---
+Thank you for your interest in contributing to the Libiry ecosystem!
+## Getting started
+
+### Prerequisites
+
+- Python 3.12 (for Libiry/Libiry2Go)
+- Node.js 18+ (for BookSpineScanner)
+- Git
+
+### Setting up development environment
+
+#### Libiry
+
+```bash
+# Fork and clone
+git clone https://github.com/YOUR_USERNAME/Libiry.git
+cd Libiry
+
+# Create virtual environment
+python -m venv venv
+venv\Scripts\activate  # Windows
+source venv/bin/activate  # Linux
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run in debug mode
+python main.py
+```
+
+#### Libiry BookSpineScanner
+
+```bash
+# Navigate to folder
+cd BookSpineScanner
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+## Code style
+
+### Python
+
+- Follow PEP 8 guidelines
+- Use type hints where practical
+- Add docstrings to functions
+- Comment complex logic
+
+```python
+def extract_metadata(path: Path) -> dict:
+    """Extract metadata from an e-book file
+
+    Args:
+        path: Path to the e-book file
+
+    Returns:
+        Dictionary containing metadata fields
+    """
+    pass
+```
+
+### JavaScript
+
+- Use modern ES6+ syntax
+- Consistent formatting (Prettier recommended)
+- Clear variable names
+
+```javascript
+/**
+ * Extract text from book spine image
+ * @param {ImageData} image - The spine image data
+ * @returns {Promise<string>} Extracted text
+ */
+async function extractSpineText(image) {
+    // Implementation
+}
+```
+
+## Making changes
+
+### Workflow
+
+1. **Create a branch** for your changes
+   ```bash
+   git checkout -b feature/my-new-feature
+   ```
+
+2. **Make your changes** following code style guidelines
+
+3. **Test your changes**
+   - Run the application
+   - Test affected functionality
+   - Check for regressions
+
+4. **Commit with clear messages**
+   ```bash
+   git commit -m "Add support for XYZ format"
+   ```
+
+5. **Push and create pull request**
+   ```bash
+   git push origin feature/my-new-feature
+   ```
+
+### Commit messages
+
+Write clear, descriptive commit messages:
+
+**Good:**
+- `Add OPF sidecar support for MOBI files`
+- `Fix scrollbar not responding to clicks in Edit Tags popup`
+- `Improve cover extraction performance for large PDFs`
+
+**Avoid:**
+- `Fix bug`
+- `Update`
+- `WIP`
+
+## Areas for contribution
+
+### High priority
+
+- **Testing** - Automated tests, test coverage
+- **Documentation** - Tutorials, examples, translations
+- **Performance improvements** - Faster loading, lower memory
+### Medium priority
+
+- **New file format support** - Additional e-book formats
+- **Accessibility** - Screen reader support, keyboard navigation. The goal for this tool was: cross-platform, available offline, written in Python. The tool to achieve these goals was Kivy. Alas, accessibility suffered because of that
+- **UI improvements** - Better layouts, responsive design
+
+### Low priority (nice to have)
+
+- **Restrict the use of OPF files** - The more metadata can be read directly from the file, the better
+- **Plugins** - Plugin system architecture
+- **Mobile** - Native mobile app wrappers
+- **Integration** - New tool integrations
+- Support for stars, shelfs etcetera
+
+## Submitting pull requests
+
+### PR checklist
+
+- [ ] Code follows project style guidelines
+- [ ] Changes are documented (comments, docstrings)
+- [ ] Tested on at least one platform
+- [ ] No breaking changes (or clearly documented)
+- [ ] Updated relevant documentation
+
+### PR description
+
+Include:
+1. What the change does
+2. Why it's needed
+3. How to test it
+4. Screenshots (for UI changes)
+
+### Review process
+
+1. Maintainer reviews code
+2. Discussion and feedback
+3. Required changes (if any)
+4. Approval and merge
+
+## Reporting issues
+
+### Bug reports
+
+Include:
+- Operating system and version
+- Python/Node.js version
+- Steps to reproduce
+- Expected vs actual behavior
+- Error messages (from debug mode)
+- Screenshots if applicable
+### Feature requests
+
+Describe:
+- What you want to accomplish
+- Why existing features don't work
+- Proposed solution (if any)
+- Impact on existing functionality
+
+## Testing
+
+### Manual testing
+
+Before submitting:
+1. Test the specific feature you changed
+2. Test related features
+3. Test on at least one platform
+
+### Debug mode
+
+Use debug mode to see error output:
+```bash
+# Windows
+run_debug.bat
+
+# Or
+python main.py
+```
+
+### Libiry BookSpineScanner testing
+
+Test in multiple browsers:
+- Chrome (primary)
+- Firefox
+- Safari (for iOS PWA)
+
+## Documentation
+
+### Updating docs
+
+If your change affects user-facing features:
+1. Update relevant documentation in `docs/`
+2. Keep formatting consistent
+3. Add examples where helpful
+
+### Code comments
+
+Add comments for:
+- Complex algorithms
+- Non-obvious decisions
+- Workarounds for bugs/limitations
+- Format-specific behavior
+
+```python
+# MOBI files don't support direct metadata editing,
+# so we use OPF sidecar files for tag storage.
+# This was chosen over modifying the MOBI format
+# because it preserves the original file integrity.
+def _modify_mobi_tags(self, path, tags_to_remove, tag_to_add):
+    return modify_opf_tags(path, tags_to_remove, tag_to_add)
+```
+
+## License
+
+By contributing, you agree that your contributions will be licensed under the same license as the project (Creative Commons License).
+
+## Questions?
+
+- Open a GitHub issue for technical questions
+- Check existing issues before creating new ones
+- Be respectful and constructive
+
+---
+
+Thank you for contributing to Libiry!

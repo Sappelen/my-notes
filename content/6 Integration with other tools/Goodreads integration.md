@@ -1,0 +1,183 @@
+---
+title: Goodreads integration
+---
+## Overview
+
+Goodreads is a popular book tracking service. Libiry's field names are compatible with Goodreads CSV exports, making it easy to:
+- Import your Goodreads reading history
+- Export your Libiry catalog in a Goodreads-compatible format
+- Maintain compatibility with Goodreads-based tools, without having your data in the cloud
+
+## Import your Goodreads reading history
+
+### Step 1: Export from Goodreads
+
+1. Go to [goodreads.com/review/import](https://www.goodreads.com/review/import)
+2. Click "Export Library"
+3. Download the CSV file
+
+Match the headings in the CSV with Libiry's field names (go to the [Settings](1.6%20Customize%20Libiry) to change those).
+
+| Libiry default field name | Goodreads field name |
+| ------------------------- | -------------------- |
+| booktitle                 | Title                |
+| author                    | Author               |
+| isbn                      | ISBN                 |
+| rating                    | My Rating            |
+| publisher                 | Publisher            |
+| pages                     | Number of Pages      |
+| year                      | Year Published       |
+| tags                      | Bookshelves          |
+| description               | My Review            |
+| notes                     | Private Notes        |
+### Step 2: Convert to markdown
+
+Use Obsidian and one of its plugins (for example the JSON-CSV import plugin or the Booksidian plugin) to convert your Goodreads CSV to markdown files.
+
+Alternatively, write your own script to make the conversion:
+
+**Example Python script:**
+```python
+import csv
+from pathlib import Path
+
+def convert_goodreads_csv(csv_path, output_folder):
+    with open(csv_path, 'r', encoding='utf-8') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            # Create markdown content
+            md = f"""---
+booktitle: "{row['Title']}"
+author: "{row['Author']}"
+isbn: "{row['ISBN']}"
+rating: {int(float(row['My Rating']) * 2) if row['My Rating'] else 0}
+tags: [{row['Bookshelves']}]
+description: "{row['My Review']}"
+notes: "{row['Private Notes']}"
+---
+
+# {row['Title']}
+
+By {row['Author']}
+"""
+            # Save file
+            filename = row['Title'].replace(' ', '-')[:50] + '.md'
+            output_path = Path(output_folder) / filename
+            output_path.write_text(md, encoding='utf-8')
+
+convert_goodreads_csv('goodreads_export.csv', 'Books/')
+```
+
+### Step 3: Import to Libiry
+
+Move the generated markdown files into your Libiry folder.
+
+## Export from Libiry to the Goodreads format
+
+Create a CSV using Obsidian Bases or other tools.
+The CSV will look like this:
+
+```csv
+Title,Author,ISBN,My Rating,Bookshelves,My Review,Private Notes
+"The Handmaid's Tale","Margaret Atwood","9780385490818",5,"distopian, scifi","Great book!",""
+"Neuromancer","William Gibson","9780441569595",5,"","",""
+```
+
+
+## Beware
+
+### Reading progress
+
+Goodreads reading progress doesn't export well. Track with:
+- Libiry tags: reading, read, to-read
+- Obsidian fields: status, progress
+### Rating conversion
+
+Goodreads uses 1-5 stars, Libiry uses 0-10 internally:
+
+| Goodreads | Libiry Internal | Libiry Display |
+| --------- | --------------- | -------------- |
+| 1 star    | 2               | ★☆☆☆☆          |
+| 2 stars   | 4               | ★★☆☆☆          |
+| 3 stars   | 6               | ★★★☆☆          |
+| 4 stars   | 8               | ★★★★☆          |
+| 5 stars   | 10              | ★★★★★          |
+
+**Converting:**
+- Goodreads to Libiry: multiply by 2
+- Libiry to Goodreads: divide by 2, round
+
+### Bookshelves to tags
+
+Goodreads "Bookshelves" become Libiry "tags":
+
+**Goodreads:**
+```
+Bookshelves: fantasy, to-read, favorites
+```
+
+**Libiry:**
+```yaml
+tags:
+  - fantasy
+  - to-read
+  - favorites
+```
+
+### ISBN matching
+
+Use ISBN for accurate matching:
+
+1. In Goodreads, ensure ISBN is filled
+2. In Libiry, ISBN enables duplicate detection
+3. Book database lookups use ISBN
+### Unmapped fields
+
+ Some Libiry fields do not exist in Goodreads:
+- cover (link to cover image location or URL)
+- language
+- series
+- series_index
+- author_sort
+- page_count
+- publication_date
+- translator
+- illustrator
+
+Some Goodreads fields do not exist in Libiry:
+- Author l-f  
+- Additional Authors  
+- ISBN13  
+- Average Rating  
+- Binding  
+- Original Publication Year  
+- Date Read  
+- Date Added  
+- Bookshelves with positions  
+- Exclusive Shelf  
+- Spoiler  
+- Read Count  
+- Owned Copies
+
+### Private notes
+
+Goodreads' "Private Notes" maps to Libiry's "notes":
+
+```yaml
+notes: "Borrowed from library, return by March"
+```
+
+These stay in your local files and are never uploaded.
+
+## Synchronization
+
+The Goodreads API has been deprecated. No automatic sync exists. Update manually or use:
+- Periodic exports
+- Obsidian plugins for Goodreads
+- IFTTT webhooks
+- Third-party sync tools (may be unofficial)
+- Goodreads RSS feeds (these have limited data, though)
+- Personal scripts
+- Manual CSV export/import
+
+Tip: You can remove duplicates with Libiry's duplicate detection.

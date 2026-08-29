@@ -1,0 +1,73 @@
+---
+title: Utilities
+---
+Libiry includes several standalone utility scripts for maintenance and troubleshooting.
+
+## Available utilities
+
+| Utility                                          | Purpose                                       |
+| ------------------------------------------------ | --------------------------------------------- |
+| Clear cache!!!                                 | Clear Libiry's cache                          |
+| create_icons.py                                  | Generate application icons (for internal use) |
+
+## Batch scripts
+
+### Windows launchers
+
+| Script           | Purpose                              |
+| ---------------- | ------------------------------------ |
+| libiry.bat       | Launch Libiry without console output |
+| libiry_debug.bat | Launch Libiry with console output    |
+| install.bat      | Create venv and install dependencies |
+| Libiry2Go.bat    | Launch Libiry2Go                     |
+### Usage
+
+All batch scripts should be run from the Libiry folder:
+
+```batch
+cd C:\path\to\Libiry
+libiry.bat
+```
+
+## Creating custom scripts
+
+### Python Environment
+
+Use the Libiry virtual environment:
+
+```batch
+@echo off
+cd /d "%~dp0"
+call venv\Scripts\activate
+python your_script.py
+```
+
+### Importing Libiry modules
+
+Your custom scripts can use Libiry's core modules:
+
+```python
+import sys
+from pathlib import Path
+
+# Add Libiry to path
+sys.path.insert(0, str(Path(__file__).parent))
+
+# Import modules
+from core.metadata_extractor import extract_metadata
+from core.cover_extractor import extract_cover
+
+# Use them
+metadata = extract_metadata(Path("book.epub"))
+print(metadata)
+```
+
+### Available modules
+
+| Module | Functions |
+|--------|-----------|
+| `core.metadata_extractor` | `extract_metadata()`, OPF helpers |
+| `core.cover_extractor` | `extract_cover()` |
+| `core.cover_cache` | Thumbnail caching |
+| `core.file_opener` | Open files in apps |
+| `core.library` | Folder scanning |
