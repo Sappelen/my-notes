@@ -13,7 +13,7 @@ The Libiry ecosystem consists of four main components:
 | Calibre2Libiry          | Python 3.12 | Kivy      | Renaming function   |
 | Libiry2Go               | Python 3.12 | Kivy      | Catalog generator   |
 | Libiry BookSpineScanner | JavaScript  | Vite/PWA  | Web-based scanner   |
-and some [[Utilities]].
+and some [[7.3 Utilities]].
 
 Installing Libiry on Windows for developers:  
 git clone [https://github.com/sappelen/Libiry.git](https://github.com/sappelen/Libiry.git) "C:\Program Files\Libiry"  
@@ -36,8 +36,8 @@ Libiry will be installed in folder /opt/Libiry
 ## Documentation
 
 - [[content/7 For developers/Architecture]] 
-- [[Contributing to Libiry]]
-- [[Libiry roadmap]]
+- [[7.7 Contributing to Libiry]]
+- [[7.6 Libiry roadmap]]
 
 ## Quick start for developers
 
@@ -132,20 +132,20 @@ BookSpineScanner/
 
 ## Testing
 
-### Launch options for Libiry!!!
+### Launch options for Libiry
 
-| Windows          | Or directly    | Description                              | Use Case        |
-| ---------------- | -------------- | ---------------------------------------- | --------------- |
-| libiry.bat       |                | Silent launch (pythonw.exe)              | Normal use      |
-| libiry_debug.bat | python main.py | With console output                      | Troubleshooting |
-| libiry.sh        |                | Via the shell script (output is visible) |                 |
+| Windows          | Or directly    | Description                              | Use Case                 |
+| ---------------- | -------------- | ---------------------------------------- | ------------------------ |
+| libiry.bat       |                | Silent launch (pythonw.exe)              | Windows, normal use      |
+| libiry_debug.bat | python main.py | With console output                      | Windows, troubleshooting |
+| libiry.sh        |                | Via the shell script (output is visible) | Linux                    |
  STEP 3 — RUN LIBIRY
 -----------------------------------------------------------------------
 
-Double-click run.bat to start the main Libiry application.
+Double-click libiry.bat to start the main Libiry application.
 Double-click Libiry2Go.bat to start the catalog generator.
 Double-click Calibre2Libiry.bat to start the Calibre converter.
-Double-click Align_book_data.bat to start the book data tool
+Double-click Align_book_data.bat to start the book data tool.
   
   /opt/Libiry/venv/bin/python /opt/Libiry/main.py
 
@@ -173,7 +173,7 @@ npm run dev
 1. Add extension to `selected types.txt`
 2. Create extraction function in `metadata_extractor.py`
 3. Add cover extraction in `cover_extractor.py`
-4. Handle in main.py display logic
+4. Handle display logic in main.py 
 
 ### Modifying the UI
 

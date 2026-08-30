@@ -3,9 +3,13 @@ title: Welcome to Libiry
 ---
 ![[Libiry-grid.png]]
 
-Welcome to the official Libiry site. Libiry visualises and manages your entire book collection: physical books on shelves, e-books, audiobooks, book notes and summaries.<br>
+Welcome to the official Libiry site. 
+
+Libiry is a stand-alone cataloging system designed for individuals with a small to medium-sized collection. It is built for cataloging books, but can be used for other collections too.
+
+With Libiry, you can manage your physical books, e-books,  audiobooks, book notes, summaries, games, movies, board games, etcetera etcetera.<br>
 The 'bi' in the name stands for two, referring to the digital and analog books it can handle.
-Libiry allows you to view, edit, and organize metadata (tags, author, title, shelf etcetera). It is a simple cross-platform tool with a customizable interface.<br>
+Libiry allows you to view, edit, and organize metadata (like tags, author, title and shelf). It is a simple cross-platform tool with a customizable interface.<br>
 Libiry consists of five tools that work together.
 
 | Component                                                      | Description                                                                 | Platform         |
@@ -20,24 +24,7 @@ Libiry consists of five tools that work together.
 Libiry works with your own book folder structure.<br>
 It visualizes all of your books and zines, with or without an ISBN number.<br>
 There's no separate database.<br>
-You can choose your own book data field names.<br>
-<br>
-With the Libiry BookspineScanner, you can add your physical books to your e-book collection with only one photo per book shelf. Taking stock of your analog books is not a big project anymore. It can easily be done in parts, too.
-## Quick links
-
-
-
-## Metadata per format
-
-| Format        | Read | Write metadata | Notes                                                                                                                                                                           |
-| ------------- | ---- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| EPUB          | ✓    | ✓              | Full metadata support                                                                                                                                                           |
-| MOBI/AZW/AZW3 | ✓    | ✓              | OPF files used for metadata storage                                                                                                                                             |
-| PDF           | ✓    | ✓              | Title, author, description and tags can be maintained in most PDFs. Sidecars are needed for some PDFs and also for isbn, year, language, series, rating, notes, publisher, etc. |
-| CBZ           | ✓    | ✓              | Metadata are supported for most fields, OPF files are only needed for isbn, author_sort and publication_date                                                                    |
-| CBR           | ✓    | ✓              | OPF files used for metadata storage                                                                                                                                             |
-| Markdown      | ✓    | ✓              | Full metadata support                                                                                                                                                           |
-| Other formats | ✓    | ✓              | OPF files used for metadata storage                                                                                                                                             |
+You can choose your own book data field names.
 
 ---
 

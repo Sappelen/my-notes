@@ -3,6 +3,9 @@ title: 2 Libiry BookSpineScanner
 ---
 ![[libiry-bookspinescanner.png]]
 
+Taking stock of your analog books is not a big project anymore. It can easily be done in parts, too.
+With the Libiry BookspineScanner you can add your physical books to your book collection overview with only one photo per book shelf. 
+
 ## Key features
 
 - **Spine [OCR](8%20Glossary/OCR)** - Reads text from book spines
@@ -15,28 +18,28 @@ title: 2 Libiry BookSpineScanner
 - **Customizable** - Change the field names to match those you use in Obsidian or Libiry
 - **Works offline** - After the initial load, Tesseract.js works without internet
 - **Installable** - Add to home screen on mobile devices
- The Libiry BookSpineScanner is a Progressive Web App (PWA) that identifies books with spine OCR and barcode detection. It gives you [markdown](https://en.wikipedia.org/wiki/Markdown) (text) files that can be used in Libiry, Obsidian and other tools.
-You can start the tool [here](https://sappelen.github.io/BookSpineScanner/). You can also start it with the 'Other apps' button in Libiry.
-The BookSpineScanner works in any modern browser (Chrome, Firefox, Safari).
 
+ The Libiry BookSpineScanner is a Progressive Web App (PWA) that identifies books with spine OCR and barcode detection. It gives you [markdown](https://en.wikipedia.org/wiki/Markdown) (text) files that can be used in Libiry, Obsidian and other tools. It works in any modern browser (Chrome, Firefox, Safari).
 ## How it works
 
-1. Open the [Libiry BookSpineScanner](https://sappelen.github.io/BookSpineScanner/)
-2. Check the settings. Which OCR engine do you want to use? And which book databases?
-3. Take a photo of your bookshelf (or upload a photo)
-4. The tool detects individual book spines
-5. The tool uses [OCR](2.2%20OCR%20engines%20used.md) to extract text from each spine
-6. The tool looks up books in [various online databases](2.3%20Book%20databases%20used.md)
-7. Review the results and correct mistakes
-8. Export the results to markdown files
-9. Open the markdown files in Libiry or in another tool
+### 1. Start the Libiry BookSpineScanner [here](https://sappelen.github.io/BookSpineScanner/) or with the 'Other apps' button in Libiry
+
+### 2. Check the ![[gear.png]] Settings. Which OCR engine do you want to use? And which book databases?
+
+### 3. Take a photo of your bookshelf (or upload a photo)
+
+### 4. The tool detects individual book spines
+
+### 5. The tool uses [OCR](2.2%20OCR%20engines%20used.md) to extract text from each spine
+
+### 6. The tool looks up books in [various online databases](2.3%20Book%20databases%20used.md)
 
 ### 7. Review the results and correct mistakes
 
 You'll see that each result has a confidence indicator:
-- 🟢 **Green** - correct match (>85% confidence that the OCR text matches this book in the database)
-- 🟠 **Orange** - uncertain match (50-85% confidence)
-- 🔴 **Red** - incorrect match (<50% confidence)
+- 🟢 **High** - correct match (>85% confidence that the OCR text matches this book in the database)
+- 🟠 **Medium** - uncertain match (50-85% confidence)
+- 🔴 **Low** - incorrect match (<50% confidence)
 
 For incorrect matches (red), the preliminary book title is exported instead of the matched book title. 
 Toggle the confidence indicator to change its value. 
@@ -48,26 +51,33 @@ Tip: type author and title, set the confidence indicator to green and press Look
 
 Add tags to individual books.
 
-### 8. Export the results to markdown files
+### 8. Export the results
 
-Add tags that all books have in common, like:
+Add common tags, like:
 - type/analog (physical book)
 - shelf/bottom-left (location)
 - collection/favorites (collection)
 - genre/scifi (genre)
 - status/to-read (reading status)
-to all your books by putting them in the tag box at the bottom of the screen.
+to your books by putting them in the tag box at the bottom of the screen.
 
 Tip: Keep your scan photos until you've verified the export. If you find errors later, you can re-scan.
+
+Then, press Export.md or Export.zip.
+
+### 9. Open your result files in Libiry
+
+Move your BookSpineScanner files to a folder within your Libiry library folder. The books in the files are then shown in Libiry's book grid, alongside any digital books you might have.
 
 ## When to use
 
 The Libiry BookSpineScanner works best when:
 - You have many books to catalog
-- The spine text is readable (not too small/faded)
-- Old/damaged books may not OCR well
-- Matching depends on the book being in online databases
-- Some manual corrections are usually needed
+- The spine text is readable (not too small or faded)
+- Your books are not too old or too damaged
+- Your books are present in online databases
+
+Some manual corrections are usually needed.
 
 ## Barcode mode
 
@@ -92,7 +102,7 @@ For books with a visible ISBN barcode:
 - No account required. No tracking, no analytics
 - All processing happens in your browser. The only data that is sent to any server, are the book data lookups in Google Vision, Open Library etc. If you do not want that, you can choose to only use [Tesseract OCR](https://tesseractocr.org/), an open-source tool that runs entirely offline on your local machine and never uploads your data. It is compliant with strict privacy regulations like GDPR
 - Your settings are stored in your browser's local storage
-- Book lookup results are cached in IndexedDB to reduce API calls
+- Book lookup results are cached in your browser (IndexedDB) to reduce API calls
 
 ### Install as an app (optional)
 
@@ -121,15 +131,3 @@ For books with a visible ISBN barcode:
 - In the BookSpineScanner, tap the gear icon (Settings)
 - Paste your API key in the "Google Vision API Key" field
 - Select "Google Cloud Vision" as OCR engine
-
-## Integration with Libiry
-
-- Place the markdown files in your Libiry book folder
-- Refresh Libiry
-
-Libiry reads the book metadata fields 'cover', 'booktitle', 'author', 'isbn', 'publisher', 'year', 'language' and 'tags' from the markdown files.  
-Other fields are ignored by Libiry, but preserved in the file.
-## Further reading
-
-- [2.4 Scanning guide](2.4%20Scanning%20guide.md) - How to take good photos and scan books
-- [Export options](2.1%20Libiry%20BookSpineScanner%20export.md) - Output formats and Obsidian integration

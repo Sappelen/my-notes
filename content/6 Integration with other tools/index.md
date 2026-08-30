@@ -13,9 +13,9 @@ Libiry uses open standards for maximum compatibility:
 
 | Tool                                    | Integration Type                                  |
 | --------------------------------------- | ------------------------------------------------- |
-| [Obsidian](Obsidian%20integration.md)   | Shared library folder and book data               |
-| [Calibre](Calibre%20integration.md)     | Shared library folder, partially shared book data |
-| [Goodreads](Goodreads%20integration.md) | CSV import/export format                          |
+| [Obsidian](6.1%20Obsidian%20integration.md)   | Shared library folder and book data               |
+| [Calibre](6.3%20Calibre%20integration.md)     | Shared library folder, partially shared book data |
+| [Goodreads](6.2%20Goodreads%20integration.md) | CSV import/export format                          |
 ## Integration matrix
 
 | Feature          | Obsidian | Calibre | Goodreads |
